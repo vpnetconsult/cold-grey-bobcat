@@ -17,3 +17,6 @@ WisLink LPWAN Concentrator/RAK2245/Rpi HAT Edition/AS923
 - SIRIM         : MYR 40.00  
 
 
+## Onbaording Step-By-Step
+
+The 'endgame' is to have the data-only hotspot in your helium app same as with your other hotspots. See the detailed 11 Steps in the subfolder / Onboarding. I tried to make it as 'fool'proof' as possible. Let me know if you spot any issues.
