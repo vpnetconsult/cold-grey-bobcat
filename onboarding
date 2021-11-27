@@ -1,0 +1,42 @@
+# Onboarding a data-only hotspot using Helium App and CLI
+
+As the helium documentation explains, in order to onboard a data-only hotspot you need a CLI wallet. This wallet (link below) you install on your laptop, not on the gateway. There are wallets for any OS, I have used the Mac wallet.
+Instead of creating a NEW CLI wallet we will import the keys of a mobile wallet (from the helium app) so that finally the data-only hotspot appears in the helium app and can be managed as any other hotspot.
+
+Step 1: Install the Helium App or use your existing Helium Wallet that you intend to use to manage hotspots.
+Step 2: Under Setting ==> Security ==> Reveal Words, write down the 12 words of the pass phrase
+Step 3: Download the CLI Wallet for your OS from https://github.com/helium/helium-wallet-rs/releases/tag/v1.6.9. Be sure to use the latest as it's frequent changing.
+Step 4: From the command line create a basic wallet: $ helium-wallet create basic --seed mobile
+  Enter the 12 words as prompted. This essentially copies your Helium Mobile App Wallet to your CLI Wallet and both can be used simulatenously
+Step 5: Get some HNT into your Wallet. For the next step you need to have appr $15 worth of HNT in your Helium Mobile Wallet, either through your PoC mining or from exchange. It involves executing commands switching between your helium-gateway (raspberry) and your CLI helium-wallet (your PC, laptop).
+Step 6: From your data-only gateway (raspberry), get your gateway name and address <GATEWAY_ADDRESS> using the following command
+  $ helium_gateway key info
+Step 8: From your CLI wallet, use your CLI command line (your laptop/PC) to check the balance and get the <WALLET_ADDRESS>
+    $ ./helium-wallet balance
+    you should see the same balance as in your helium mobile app. Take note of the wallet address <WALLET_ADDRESS>.
+Step 9: Return to your data-only gateway command line (raspberry) and enter the following command. This will generate a add transaction which you need to note the transaction ID <TXN>
+    $ helium_gateway add --owner WALLET_ADDRESS --payer WALLET_ADDRESS --mode dataonly
+    It should return a JSON object with the following information
+      - address: this should match <GATEWAY_ADDRESS>, the data-only hotspot you want to add to the blockchain
+      - fee: 65000 (DC)
+      - mode: data-only
+      - owner: this should match your <WALLET_ADDRESS>
+      - payer: this should match your <WALLET_ADDRESS>
+      - staking_fee: 1000000 (DC)
+      - txn: <TXN>
+    Check the information is all correct and note down the <TXN> ID.
+Step10: Return back to your CLI wallet command prompt (Laptop/PC) and issue the following command (don't worry, this won't yet commit)
+    $ ./helium-wallet hotspots add <TXN>
+    check the response message is successful and execute same command with --commit to execute
+    $ ./helium-wallet hotspots add <TXN> --commit
+    it may take a while until the transaction is processed in the blockchain, be patient. Finally you should see the hotspot in your mobile app and/or in the CLI wallet
+    $ ./helium-wallet hotspots list
+Step11: Assert the location. You can do that at any time, what you need to gather are
+    - location: lat/lon (mandatory)
+    - elevation: height in meter (optional)
+    - gain: the antenna gain in dbi with 1 decimal precision
+    From the helium-wallet CLI command (PC/Laptop) enter
+    $ ./helium-wallet hotspots assert --gateway <GATEWAY_ADDRESS> --lat <latitude> --lon <Longitude> --elevation <height_in_meter>
+    Again this will prompt you with the Preview which you need to commit by executing same command with --commit
+    
+    
