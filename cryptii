@@ -1,1 +1,24 @@
 https://cryptii.com/pipes/base64-to-hex
+
+Occasionally you need to decrypt the lora data payload from binary/base64 to hex. 
+
+The ttn-gateway log would show the sensor "txpk" message (sample below, formatted for better visibility). The data payload containing the sensor data (like temperature, location etc.) is a base64 encoded string.
+To decode (and use in console test message), I copied the string into cryptii and decode into hex. Then the hex string I copy into the function script validator "Payload input" message.
+
+
+{"txpk":
+	{
+		"imme":false,
+		"tmst":3775150828,
+		"freq":923.2000122070312,
+		"rfch":0,
+		"powe":27,
+		"modu":"LORA",
+		"datr":"SF10BW125",
+		"codr":"4/5",
+		"ipol":true,
+		"prea":null,
+		"size":33,
+		"data":"IHSX5IUXcj2jW5/COWhgSoil3Ax3vKcO3yJHmx091yv+"
+	}
+}
