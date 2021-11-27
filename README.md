@@ -2,6 +2,7 @@
 Industrial IoT (IIoT) usecases
 
 Step-By-Step Setup of a Helium Data-Only Hotspot that follows the guides available under
+
 https://docs.helium.com/mine-hnt/data-only-guides/rak-concentrators/.
 
 The hardware requirements are identical to a PoC Miner. You only run a different software that makes it a Data-Only hotspot with network packet forwarding.
