@@ -40,5 +40,10 @@ So I had two other components purchased before
 RAK833-SX1301-SPI-AS923 mPCIe + SEEED-WM1302-Pi HAT: Although mechanically these are standard interfaces, it doesn't work combining RAK with SEEED.
 RAK833-SX1301-SPI-AS923 mPCIe with no-name mPCIe-2-USB adaptor: Should have read the small prints, in order to use mPCIe-2-USB you need the USB version of the RAK833 mPCIe. It's not a mechanical thing but some pins on the SPI only are missing.
 
+Stackable USB-2-mPCIe Lora Stack
+
+![mPCIe](IMG_0981.jpg?raw=true "mPCIe stuff")
+
 ![mPCIe](IMG_0979.jpg?raw=true "mPCIe stuff")
+
 
