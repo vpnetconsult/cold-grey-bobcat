@@ -23,6 +23,12 @@ WisLink LPWAN Concentrator/RAK2245/Rpi HAT Edition/AS923
 - Duty Tax (5%) : MYR 26.50
 - SIRIM         : MYR 40.00  
 
+## Things that don't work, mPCIe
+
+rather then having a single-piece concentrator component like the RAK2245 attached to your Raspberry (which you would need to re-assemble when changing frequency), the idea of a plug-n-play mPCIe Slot type solution seems intriguing. Here are a few things I figured are not working
+
+![mPCIe](IMG_0979.jpg?raw=true "mPCIe stuff")
+
 
 ## Onboarding Step-By-Step
 
