@@ -1,1 +1,12 @@
 https://console.helium.com
+
+Some issues encountered while trying to get sensor data appear in console.
+
+DEBUG: helium-gateway
+- to change /etc/helium_gateway/settings.toml set log level to debug (default is info) helps get more screen output
+
+[log]
+method = "syslog"
+level = "debug"
+timestamp = false
+
