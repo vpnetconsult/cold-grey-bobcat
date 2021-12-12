@@ -4,6 +4,8 @@ Some issues encountered while trying to get sensor data appear in console.
 
 # Important: The first time a device joins the Network, its keys need to be added to the blockchain and the updated block propagated to the miners (Hotspots) and this initial join process could take up to 20 mins depending on:
 
+
+
 -----------HELIUM GATEWAY-------------------------------------------------
 - to change /etc/helium_gateway/settings.toml set log level to debug (default is info) helps get more screen output
 
